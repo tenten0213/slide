@@ -1,97 +1,168 @@
 % Headers
-
 title: 明日から使えるD3.js
 author: @tenten0213
-
+cover: d3.jpg
 % Slides Start
-# 明日から使えるD3.js(全体で20分)
-# 自己紹介(1分)
 
-# Introduction(2分)
+# D3.jsとは？
+<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2.1.382/styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="../syntaxhighlighter_2.1.382/styles/shThemeMidnight.css"/>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../syntaxhighlighter_2.1.382/scripts/shCore.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter_2.1.382/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter_2.1.382/scripts/shBrushJScript.js"></script>
 
-* 対象者
-* 狙い
-* セッションの概要
+<script type="text/javascript">
+  SyntaxHighlighter.defaults['gutter'] = false;
+  SyntaxHighlighter.config.clipboardSwf = '../syntaxhighlighter_2.1.382/scripts/clipboard.swf';
+  SyntaxHighlighter.all();
+</script>
 
-# D3.jsとは(2分)
-* [D3.js](http://d3js.org/)
-* [Gallery](https://github.com/mbostock/d3/wiki/Gallery)
-* ライセンス
+* [http://d3js.org/](http://d3js.org/)
+![](pictures/D3js.jpg)
 
-D3.jsはほげほげ。jQueryみたいなセレクタがほげほげ。
-SVGがほげふが
+# 特徴
+* 修正BSDライセンス(商用利用可能)
+* 豊富なサンプル、ドキュメント
+* インタラクティブなグラフや、アニメーションを付けたい場合にオススメ
+* jQueryライクなセレクタ
+  * jQueryを使い慣れている人には取っ付き易い
 
 # 前提知識
-
-* HTML
-	* DOM
-* CSS
+* HTML5
+	* DOM構造
+* CSS3
 * JavaScript
 	* jQuery
-* SVG
+* SVG  
+まったく知らないという状態じゃなければ大丈夫！だと思います...
+
+# Galleryを見てみよう！
+* https://github.com/mbostock/d3/wiki/Gallery
+![](pictures/gallery.png)
 
 # D3.jsの基礎
+Galleryにあるサンプルは綺麗で参考にはなるのですが、  
+複雑なのでまずは基礎から見ていきましょう。
 
-Galleryのは複雑なので、基礎からやっていきましょう。
+![](pictures/complexity.jpg)
 
+# これから説明すること
+* セレクション
+* 要素の追加
+* メソッドチェイン
+* Styleの設定 
+* append,remove 
+* データバインディング 
+* update,enter,exit 
+* 要素の描画 
 
-# D3.jsの利用
+# これから説明すること
+* transition 
+* イベント設定 
+* scale 
+* axis 
+* D3.jsのレイアウト 
+* 基本的なグラフの作成 
+* Demo(説明もするし、3-5分) 
+* CSVからグラフ描画 
 
-* [D3.js](http://d3js.org/) からzipファイルを取得
-* <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> と記述
-* [Github-D3.js](https://github.com/mbostock/d3) から取得
+# 今回は説明しないこと
+
+# D3.jsを利用するには
+* [D3.js](http://d3js.org/)のサイトからzipファイルを取得
+* [Github](https://github.com/mbostock/d3) から取得
+* 以下を記述
+
+<pre class="brush: html">
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</pre>
 
 # セレクション
-http://ja.d3js.info/mike/selection/
+* D3はjQueryの様なセレクタを提供している
+* 操作対象の任意のノードセットをセレクションと呼びます
+* 通常のDOM APIを用いた操作と異なり容易
+
+# DOM APIだと
+
+<pre class="brush: js">
+var paragraphs = document.getElementsByTagName("p");
+for (var i = 0; i < paragraphs.length; i++) {
+   var paragraph = paragraphs.item(i);
+      paragraph.style.setProperty("color", "white", null);
+      }
+</pre>
+[http://d3js.org/](http://d3js.org/)
+
+# D3セレクタだと
+
+<pre class="brush: js">
+d3.select("#TEXT1").style("background-color", "white");
+</pre>
+[http://d3js.org/](http://d3js.org/)
+
+楽ちんですね！
+
 # 要素の追加
-## メソッドチェイン
-## Styleの設定
-## append,remove
+
+# メソッドチェイン
+
+# Styleの設定
+
+# append,remove
+
 # データバインディング
+
 http://shimz.me/blog/d3-js/2619
-## update,enter,exit
+
+# update,enter,exit
+
 # 要素の描画
+
 # transition
+
 # イベント設定
+
 # scale
+
 # axis
+
 # D3.jsのレイアウト
+
 # 基本的なグラフの作成
+
 # Demo(説明もするし、3-5分)
-## CSVからグラフ描画
 
+# CSVからグラフ描画
 
-# 参考リンク
-
-### 公式
+# 参考(公式)
 * [D3.js](http://d3js.org/)
 * [公式チュートリアル](https://github.com/mbostock/d3/wiki/Tutorials)
 * [Gallery](https://github.com/mbostock/d3/wiki/Gallery)
 
-### 日本語ドキュメント
+# 日本語ドキュメント
 * [D3.js(日本語)](http://ja.d3js.node.ws/)
-* [D3チュートリアル | スコット・マレイ](http://ja.d3js.info/alignedleft/tutorials/d3/)
+* [D3チュートリアル スコット・マレイ](http://ja.d3js.info/alignedleft/tutorials/d3/)
 * [Daily D3](http://daily.d3js.info/)
 * [ドットインストール-D3.js入門](http://dotinstall.com/lessons/basic_d3js)
+
+# 参考（あとで消す）
 * [svg要素の基本的な使い方まとめ](http://www.h2.dion.ne.jp/~defghi/svgMemo/svgMemo_20.htm)
 * [d3.js - 三つの小円](http://ja.d3js.node.ws/document/tutorial/circle.html)
-* [【D3.js】超基本！ コンソールでselect,data,enterメソッドを理解する。 | GUNMA GIS GEEK](http://shimz.me/blog/d3-js/2619)
+* [コンソールでselect,data,enterメソッドを理解する](http://shimz.me/blog/d3-js/2619)
+* [D3.jsとjQueryのセレクションメソッドの違い](http://shimz.me/blog/d3-js/2963)
 * [D3 - セレクションの仕組み](http://ja.d3js.info/mike/selection/)
-* [D3.jsとjQueryのセレクションメソッドの違い | GUNMA GIS GEEK](http://shimz.me/blog/d3-js/2963)
-
 * [jsdo.it](http://jsdo.it/tag/d3.js)
 
-
-# Memo
-* SVGについては竹澤さんが説明している前提
-
-### スコット・マレイのチュートリアルの目次
+# スコット・マレイのチュートリアル目次
 * 要素の追加
 * メソッドのチェイン
 * データのバインディング
 * データの使い方
 * DIV 要素の描画
 * data() の力
+
+# スコット・マレイのチュートリアル目次
 * SVG の基本
 * SVG の描画
 * データ型
@@ -100,7 +171,7 @@ http://shimz.me/blog/d3-js/2619
 * スケール
 * 軸
 
-### ドットインストール
+# ドットインストール
 * styleを設定してみよう
 * append､removeを使ってみよう
 * dataを使ってみよう
@@ -108,6 +179,8 @@ http://shimz.me/blog/d3-js/2619
 * update､enter､exitを理解しよう (2)
 * SVG領域を設定してみよう
 * データを使ってcircleを描画しよう
+
+# ドットインストール
 * transitionを使ってみよう
 * eachを使ってみよう
 * onでイベントを設定しよう
@@ -116,17 +189,15 @@ http://shimz.me/blog/d3-js/2619
 * axisを使ってみよう (1)
 * axisを使ってみよう (2)
 
-### svg要素の基本的な使い方まとめ
+# svg要素の基本的な使い方まとめ
 * svgによる図形の描画
 * scaleオブジェクトによる値の変換
 * attrメソッドの動作
 * 基本的なグラフ作成
 * D3.jsのレイアウト
 
-### 【D3.js】超基本！ コンソールでselect,data,enterメソッドを理解する。
+# 【D3.js】超基本！ コンソールでselect,data,enterメソッドを理解する。
 * データバインディング
 * select
 * data
 * enter
-
-
