@@ -1,0 +1,11 @@
+# Add files and commands to this file, like the example:
+#   watch(%r{file/path}) { `command(s)` }
+#
+guard 'shell' do
+  watch(/index.md/) {|m|
+    `slideshow b #{m[0]} -t shower ` }
+end
+
+guard 'livereload' do
+  watch(%r{index.html})
+end
