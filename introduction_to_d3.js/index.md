@@ -1451,14 +1451,15 @@ industry.append("text")
    myChart.draw();
 
    // フォントサイズの変更
-   myLegend.shapes.selectAll(".legendText").style("font-size", "12px");
+   myLegend.shapes.selectAll(".legendText")
+     .style("font-size", "12px");
 
    // X軸のテキスト（年）を斜めに回転
-   x.shapes.selectAll("text").attr("transform",
-       function (d) {
-       return d3.select(this).attr("transform") + " translate(25, 40) rotate(-160)";
-       });
- });
+   x.shapes.selectAll("text").attr("transform", function (d) {
+       return d3.select(this).attr("transform")
+         + " translate(25, 40) rotate(-160)";
+   });
+});
 </pre>
 
 # [Demo(NVD3.js)](./graph/nvd3/)
