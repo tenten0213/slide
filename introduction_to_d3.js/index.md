@@ -177,7 +177,7 @@ d3.tsv("data.tsv", function(error, data) {
 ﾑｽﾞｶｼｲ(´・ω・｀)
 <br><br>
 グラフを描くための大体の流れや、コード量を感じ取ってもらえばと思います。  
-もっと簡単にグラフを書きたい方は、おまけでライブラリを紹介しますので、そちらをご参照ください。
+もっと簡単にグラフを書きたい方は、最後にオススメのライブラリを紹介しますのでそちらをご参照ください。
 
 # D3.jsを始めよう
 
@@ -546,8 +546,7 @@ var data = [
 
 var line = d3.svg.line()
   .x(function(d) { return d.x; })
-  .y(function(d) { return d.y; })
-  .interpolate("linear");
+  .y(function(d) { return d.y; });
 
 svgLine.append("path")
   .attr("d", line(data))
@@ -567,8 +566,7 @@ var data = [
 
 var line = d3.svg.line()
   .x(function(d) { return d.x; })
-  .y(function(d) { return d.y; })
-  .interpolate("linear");
+  .y(function(d) { return d.y; });
 
 svg.append("path")
   .attr("d", line(data))
@@ -860,10 +858,10 @@ function resetEvent(){
 
 <pre class="brush: js">
 svg.selectAll("circle")
-  .data(radiuses2).enter().append("circle")
+  .data(radiuses).enter().append("circle")
     .attr("cx", function(d, i) { return 30 + ( i * 100); })
     .attr("cy", function(d) { return h / 2; })
-    .attr("fill", function(d, i) { return color2[i]; })
+    .attr("fill", function(d, i) { return color[i]; })
     .attr("r", function(d) { return d; })
 
   // マウスオーバー時に円の色を変更
