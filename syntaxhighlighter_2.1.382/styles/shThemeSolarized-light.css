@@ -58,7 +58,7 @@ $green:     #859900;
   line-height: 1.1em !important;
   margin: 0 !important;
   outline: 0 !important;
-  overflow: auto !important;
+  overflow: hidden !important;
   padding: 0 !important;
   position: static !important;
   right: auto !important;
