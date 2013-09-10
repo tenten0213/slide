@@ -2,6 +2,7 @@
 title: 明日から使えるD3.js
 author: @tenten0213
 cover: d3.png
+lang: ja
 % Slides Start
 
 # D3.jsとは？
