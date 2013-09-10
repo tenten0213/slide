@@ -1,0 +1,9 @@
+body {
+  font: 15px sans-serif;
+  width: 1024px;
+  height: 768px;
+}
+
+#footer {
+  margin-left: 50px;
+}
