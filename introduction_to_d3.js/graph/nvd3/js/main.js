@@ -1,7 +1,7 @@
 (function(){
 
     // CSV読込
-    d3.csv("../../sales.csv", function(data) {
+    d3.csv("../sales.csv", function(data) {
         nv.addGraph(function() {
 
             // X軸、Y軸に設定する項目と、表示範囲、色の設定
