@@ -35,7 +35,7 @@ var svg = d3.select("#graph").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("../sales.csv", function(error, data) {
+d3.csv("graph/sales.csv", function(error, data) {
   // ドメイン毎の色の設定
   // filterでheaderのkeyが"年"のカラムを取り除く
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "年"; }));
