@@ -6,7 +6,7 @@
         height = 700 - margin.top - margin.bottom;
 
     // CSV読込
-    d3.csv("../sales.csv", function (data) {
+    d3.csv("http://tenten0213.github.io/slide/introduction_to_d3.js/graph/sales.csv", function (data) {
 
         // use Undersocre.js
         // data = _.flatten(_.map(data, function(row) { return _.map(_.filter(_.keys(row), function(key) { return key != "年"; }), function(key) { return {"Year": row["年"], "Type": key,"Value": row[key]}; }) }))
