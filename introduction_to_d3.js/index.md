@@ -538,7 +538,7 @@ var svg = d3.select("#graph").append("svg").attr("width", 200).attr("height", 10
 
 <div>
 <script>
-var svgLine = d3.select("#line").append("svg").attr("width", 777777700).attr("height", 400);
+var svgLine = d3.select("#line").append("svg").attr("width", 700).attr("height", 400);
 
 var data = [
   { "x": 100,   "y": 50},  { "x": 100,  "y": 400},
