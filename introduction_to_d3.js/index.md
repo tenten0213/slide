@@ -1401,12 +1401,108 @@ industry.append("text")
   <img alt="dimple" src="pictures/sample_dimple.jpg" />
 </div>
 
+# Demo(dimple) - Code
+<pre class="brush: js">
+ // SVGのサイズなどを設定
+ var svg = dimple.newSvg("#graph", 1000, 700);
+ var margin = {top: 70, right: 10, bottom: 80, left: 100},
+ width = 1000 - margin.left - margin.right,
+ height = 700 - margin.top - margin.bottom;
+
+ // CSV読込
+ d3.csv("http://example.com/sales/csv", function (data) {
+
+   // データをdimple.js用に整形
+   data = $.map($.map(data, function(row) {
+     return $.map(d3.keys(row).filter(function(key) {
+       return key !== "年"; }),
+       function(key) {
+       return {"年": row["年"], "業種": key,"GDP": row[key]};})}),
+       function(n){ return n;})
+
+</pre>
+
+# Demo(dimple) - Code
+<pre class="brush: js">
+   var myChart = new dimple.chart(svg, data);
+   myChart.setBounds(margin.left, margin.top, width, height);
+
+   // X軸の設定
+   var x = myChart.addTimeAxis("x", "年", "%Y", "%Y");
+   x.showGridlines = true;
+
+   // Y軸の設定
+   var y = myChart.addMeasureAxis("y", "GDP");
+   y.showGridlines = true;
+
+   // 設定しない場合は"140k"のように表示される(%などを追加したい場合に利用)
+   y.tickFormat = "";
+
+   // ラインのプロット
+   myChart.addSeries("業種", dimple.plot.line);
+
+</pre>
+
+# Demo(dimple) - Code
+<pre class="brush: js">
+
+   // 凡例の追加
+   var myLegend = myChart.addLegend(100, 10, 900, 40, "left");
+   myChart.draw();
+
+   // フォントサイズの変更
+   myLegend.shapes.selectAll(".legendText").style("font-size", "12px");
+
+   // X軸のテキスト（年）を斜めに回転
+   x.shapes.selectAll("text").attr("transform",
+       function (d) {
+       return d3.select(this).attr("transform") + " translate(25, 40) rotate(-160)";
+       });
+ });
+</pre>
+
 # [Demo(NVD3.js)](./graph/nvd3/)
 
 <div class="imgLiquidNoFill imgLiquid" style="width:700px; height:400px;">
   <img alt="nvd3" src="pictures/sample_nvd3.jpg" />
 </div>
 
+# Demo(NVD3) - Code
+<pre class="brush: js">
+// CSV読込
+d3.csv("http://example.com/sales/csv", function(data) {
+
+    nv.addGraph(function() {
+
+      // X軸、Y軸に設定する項目と、表示範囲、色の設定
+      var chart = nv.models.lineChart()
+      .x(function(d) { return d["年"]; })
+      .y(function(d) { return d["GDP"]; })
+      .yDomain([0,140000])
+      .color(d3.scale.category10().range());
+</pre>
+
+# Demo(NVD3) - Code
+<pre class="brush: js">
+
+// データをNVD3用に整形
+var keys = d3.keys(data[0]).filter(function(key) {
+  return key !== "年"; });
+data = $.map(keys, function(key){
+  return {"key": key, "values": $.map(data, function(row) {
+    return {"年":parseInt(row["年"]), "GDP":parseInt(row[key])}; })};})
+
+// チャート作成
+  d3.select('#graph svg')
+  .datum(data)
+  .transition().duration(2000)
+  .call(chart);
+
+return chart;
+    });
+});
+
+</pre>
 
 # まとめ
 
