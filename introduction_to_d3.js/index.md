@@ -1199,7 +1199,7 @@ https://github.com/mbostock/d3/wiki/Partition-Layout
   <img alt="pie" src="pictures/pie.png" />
 </div>
 
-https://github.com/mbostock/d3/wiki/Partition-Layout
+https://github.com/mbostock/d3/wiki/Pie-Layout
 
 # D3.jsのレイアウト(Stack)
 
